@@ -28,35 +28,6 @@ function generateMap(
     .attr('height', 1000)
     .attr('fill', MAP_BG)
   
-  // let path = d3.path();
-  // let latLngPath = [];
-  
-  // mapLayer.on('mouseup', function() {
-  //   path.closePath()
-  //   setPathString(path.toString())
-  //   setLatLngPath(latLngPath)
-  // })
-  
-  // markerPath.on('mouseup', function() {
-  //   path.closePath()
-  //   setPathString(path.toString())
-  //   setLatLngPath(latLngPath)
-  // })
-  
-  // mapLayer.on('mousedown', function(d) {
-  //   const [x, y] = d3.pointer(d);
-  //   path.moveTo(x, y);
-  //   latLngPath = [];
-  // })
-  
-  // mapLayer.on('mousemove', function(d) {
-  //   if (!d.which) return
-  //   const [x, y] = d3.pointer(d);
-  //   path.lineTo(x, y);
-  //   setPathString(path.toString())
-  //   latLngPath.push(projection.invert([x, y]))
-  // })
-  
   // Add county borders
   const countyPaths = mapLayer.selectAll('path')
     .data(counties.features)
@@ -85,12 +56,14 @@ function generateMap(
     path.closePath()
     setPathString(path.toString())
     setLatLngPath(latLngPath)
+    path = d3.path();
   })
   
   markerPath.on('mouseup', function() {
     path.closePath()
     setPathString(path.toString())
     setLatLngPath(latLngPath)
+    path = d3.path();
   })
   
   mapLayer.on('mousedown', function(d) {
@@ -111,7 +84,7 @@ function generateMap(
 }
 
 
-function updateFills (countyPaths, latLngPath, year, selectedCounties, setSelectedCounties) {
+function determineCircledCounties (latLngPath, selectedCounties, setSelectedCounties) {
   if (latLngPath.length < 5) return
 
   const allSelectedCounties = new Set(selectedCounties)
@@ -121,24 +94,31 @@ function updateFills (countyPaths, latLngPath, year, selectedCounties, setSelect
     coordinates: [latLngPath],
   }
 
-  countyPaths.attr('fill', function (d) {
-    const fips = parseInt(d.properties.GEOID);
-    const latLng = projection.invert(d.centroid)
+  counties.features.forEach(feature => {
+    const fips = parseInt(feature.properties.GEOID);
+    const latLng = projection.invert(feature.centroid)
     const contains = d3.geoContains(geoJsonObject, latLng)
 
-    // Why does contains seem backwards?
-    if (contains) return d3.select(this).attr('fill');
-
-    const percentDiff = getPercentDiff(fips, year)
-    const fill = color(percentDiff)
-
+    // Why does d3.geoContains appear to behave backwards?
     if (!contains) {
       allSelectedCounties.add(fips);
     }
-    return fill;
   })
+
   setSelectedCounties(allSelectedCounties)
 }
+
+
+function updateFillsForCounties (countyPaths, year, stateSelectedCounties) {
+  countyPaths.attr('fill', function (d) {
+    const fips = parseInt(d.properties.GEOID);
+    if (!stateSelectedCounties.has(fips)) return 'white';
+    const percentDiff = getPercentDiff(fips, year)
+    const fill = color(percentDiff)
+    return fill;
+  })
+}
+
 
 function updateMarkerPath(markerPathRef, pathString) {
   const markerPath = d3.select(markerPathRef)
@@ -183,10 +163,14 @@ const ElectionMap = ({
     }, [pathString])
 
     useEffect(() => {
-      if (countyPathsRef.current) {
-        updateFills(countyPathsRef.current, latLngPath, year, selectedCounties, setSelectedCounties)
-      }
+      determineCircledCounties(latLngPath, selectedCounties, setSelectedCounties)
     }, [latLngPath])
+
+    useEffect(() => {
+      if (countyPathsRef.current) {
+        updateFillsForCounties(countyPathsRef.current, year, selectedCounties)
+      }
+    }, [selectedCounties])
 
 
     return (

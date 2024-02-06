@@ -7,10 +7,10 @@ import {
   BUCKET_COLORS,
 } from './geoData';
 
-const height = 400;
+const height = 520;
 const width = 900;
 const marginLeft = 220;
-const marginBottom = 30;
+const marginBottom = 120;
 const marginTop = 30;
 const maxRadius = 30;
 
@@ -36,10 +36,25 @@ function drawChart (chartGroup) {
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(d3.axisBottom(x));
 
+  d3.select(chartGroup).append("text")
+    .attr("text-anchor", "middle")
+    .attr("font-size", 22)
+    .attr("x", (marginLeft + width) / 2)
+    .attr("y", height - 48)
+    .text("Presidential Election Year");
+
   d3.select(chartGroup).append("g")
     .style("font-size", "22")
     .attr("transform", `translate(${marginLeft},0)`)
     .call(d3.axisLeft(y));
+
+  d3.select(chartGroup).append("text")
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90)")
+    .attr("font-size", 22)
+    .attr("y", marginLeft - 180)
+    .attr("x", - (height - marginBottom + marginTop) / 2)
+    .text("County's Vote Margin")
 }
 
 
@@ -89,7 +104,7 @@ const DistributionChart = ({
     }, [circlesGroupRef, aggregatedByYearAndBucket])
 
     return (
-      <svg className='svg-chart' viewBox="0 0 1000 400">
+      <svg className='svg-chart' viewBox={`0 0 1000 ${height}`}>
         <g ref={chartGroupRef}></g>
         <g ref={circlesGroupRef}></g>
       </svg>

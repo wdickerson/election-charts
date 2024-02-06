@@ -39,6 +39,65 @@ export const getPercentDiff = (fips, year) => {
 export const YEARS = ["2000", "2004", "2008", "2012", "2016", "2020"]
 
 
+export const STATES = [
+  'AL',
+  'AZ',
+  'AR',
+  'CA',
+  'CO',  
+  'CT', 
+  'DE',
+  'FL',
+  'GA',
+  'ID', 
+  'IL',
+  'IN',
+  'IA',
+  'KS',
+  'KY',
+  'LA',
+  'ME', 
+  'MD',
+  'MA',
+  'MI', 
+  'MN', 
+  'MS', 
+  'MO',
+  'MT', 
+  'NE',
+  'NV',
+  'NH',
+  'NJ',
+  'NM',
+  'NY',
+  'NC',
+  'ND',
+  'OH',
+  'OK', 
+  'OR',
+  'PA',
+  'RI',
+  'SC',
+  'SD',  
+  'TN', 
+  'TX',
+  'UT',
+  'VT',
+  'VA',
+  'WA', 
+  'WV', 
+  'WI',
+  'WY',
+]
+
+export const getCountiesForState = (state) => {
+  return rawCounties.features.filter(feature => feature.properties.STUSPS == state).map(d => {
+    return parseInt(d.properties.GEOID);
+  })
+}
+
+export const ALL_COUNTIES = rawCounties.features.map(d => parseInt(d.properties.GEOID));
+
 export const BUCKETS = {
   HIGH_R: "R+45 or more",
   LOW_R: "R+15 to R+45", 

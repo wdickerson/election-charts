@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import ElectionMap from "./ElectionMap.jsx"
+import Controls from "./Controls.jsx"
 import DistributionChart from "./DistributionChart.jsx"
 import Legend from "./Legend.jsx"
 import Footer from "./Footer.jsx"
@@ -31,6 +32,12 @@ const Home = () => {
         <div className='big-map-section'>
           <div className='big-map'>
             <ElectionMap {...props} year="2020" includeMouseEvents />
+            <p className='description'>Click and draw to select counties on the map! Or, choose from:</p>
+            <Controls 
+              selectedCounties={selectedCounties} 
+              setSelectedCounties={setSelectedCounties}
+              setPathString={setPathString}
+            />
           </div>
           <div className='chart-section'>
             <Legend selectedCounties={selectedCounties} totalByYear={totalByYear} aggregatedByYearAndBucket={aggregatedByYearAndBucket} />
