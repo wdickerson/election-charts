@@ -32,7 +32,7 @@ const radius = d3.scaleSqrt()
 
 function drawChart (chartGroup) {
   d3.select(chartGroup).append("g")
-    .style("font-size", "22")
+    .style("font-size", 22)
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(d3.axisBottom(x));
 
@@ -44,7 +44,7 @@ function drawChart (chartGroup) {
     .text("Presidential Election Year");
 
   d3.select(chartGroup).append("g")
-    .style("font-size", "22")
+    .style("font-size", 22)
     .attr("transform", `translate(${marginLeft},0)`)
     .call(d3.axisLeft(y));
 

@@ -6,9 +6,7 @@ import {
   getCountiesForState,
 } from './geoData';
 
-const Controls = ({ selectedCounties, setSelectedCounties, setPathString }) => {
-
-  const [allUsSelected, setAllUsSelected] = useState(false);
+const Controls = ({ selectedCounties, setSelectedCounties, clearPathString }) => {
   const [selectedStates, setSelectedStates] = useState(new Set());
 
   const selectState = (state) => {
@@ -35,33 +33,43 @@ const Controls = ({ selectedCounties, setSelectedCounties, setPathString }) => {
     setSelectedCounties(newSelectedCounties);
   }
 
+  const allUsSelected = selectedStates.size == 48;
+
   const selectAllUs = () => {
     const newSelectedCounties = new Set()
+    const newSelectedStates = new Set()
 
     if (allUsSelected) {
       setSelectedCounties(new Set());
       setSelectedStates(new Set());
-      setAllUsSelected(false);
       return;
     }
 
     ALL_COUNTIES.forEach(county => {
       newSelectedCounties.add(county)
     });
+
+    STATES.forEach(state => {
+      newSelectedStates.add(state)
+    });
     setSelectedCounties(newSelectedCounties);
-    setAllUsSelected(true);
+    setSelectedStates(newSelectedStates);
   }
 
   const selectClear = () => {
     setSelectedCounties(new Set());
     setSelectedStates(new Set());
-    setAllUsSelected(false);
-    setPathString('');
+    clearPathString();
   }
-
 
   return (
     <div id='controls-section'>
+      <div 
+        onClick={selectClear} 
+        className='clear-button state-button'
+      >
+        Clear Map
+      </div>
       <div 
         onClick={selectAllUs} 
         className={`all-us-button ${allUsSelected ? 'state-button-selected' : 'state-button'}`}
@@ -79,12 +87,6 @@ const Controls = ({ selectedCounties, setSelectedCounties, setPathString }) => {
           </div>
         ))
       }
-      <div 
-        onClick={selectClear} 
-        className='all-us-button state-button'
-      >
-        Clear Map
-      </div>
     </div>
   );
 };

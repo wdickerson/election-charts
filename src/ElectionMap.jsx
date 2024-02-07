@@ -13,7 +13,7 @@ import {
 function generateMap(
   mapGroupRef, 
   markerPathRef, 
-  setPathString, 
+  appendPathString, 
   setLatLngPath, 
   countyPathsRef,
   includeMouseEvents,
@@ -48,64 +48,37 @@ function generateMap(
 
   // Stop here if you aren't the "main" map
   if (!includeMouseEvents) return;
-
   let path = d3.path();
   let latLngPath = [];
   
   mapLayer.on('mouseup', function() {
     path.closePath()
-    setPathString(path.toString())
+    appendPathString(path.toString(), true)
     setLatLngPath(latLngPath)
     path = d3.path();
   })
   
   markerPath.on('mouseup', function() {
     path.closePath()
-    setPathString(path.toString())
+    appendPathString(path.toString(), true)
     setLatLngPath(latLngPath)
     path = d3.path();
   })
   
   mapLayer.on('mousedown', function(d) {
     const [x, y] = d3.pointer(d);
+    path = d3.path();
     path.moveTo(x, y);
     latLngPath = [];
   })
   
   mapLayer.on('mousemove', function(d) {
-    if (!d.which) return
+    if (!d.buttons) return
     const [x, y] = d3.pointer(d);
     path.lineTo(x, y);
-    setPathString(path.toString())
+    appendPathString(path.toString(), false)
     latLngPath.push(projection.invert([x, y]))
   })
-
-
-}
-
-
-function determineCircledCounties (latLngPath, selectedCounties, setSelectedCounties) {
-  if (latLngPath.length < 5) return
-
-  const allSelectedCounties = new Set(selectedCounties)
-
-  const geoJsonObject = {
-    type: "Polygon",
-    coordinates: [latLngPath],
-  }
-
-  counties.features.forEach(feature => {
-    const fips = parseInt(feature.properties.GEOID);
-    const latLng = projection.invert(feature.centroid)
-    const contains = d3.geoContains(geoJsonObject, latLng)
-
-    // Why does d3.geoContains appear to behave backwards?
-    if (!contains) {
-      allSelectedCounties.add(fips);
-    }
-  })
-
-  setSelectedCounties(allSelectedCounties)
 }
 
 
@@ -119,7 +92,6 @@ function updateFillsForCounties (countyPaths, year, stateSelectedCounties) {
   })
 }
 
-
 function updateMarkerPath(markerPathRef, pathString) {
   const markerPath = d3.select(markerPathRef)
   markerPath
@@ -131,10 +103,8 @@ function updateMarkerPath(markerPathRef, pathString) {
 
 const ElectionMap = ({
   pathString, 
-  setPathString,
+  appendPathString,
   selectedCounties,
-  setSelectedCounties,
-  latLngPath, 
   setLatLngPath, 
   year,
   includeMouseEvents,
@@ -148,7 +118,7 @@ const ElectionMap = ({
         generateMap(
           mapGroupRef.current, 
           markerPathRef.current, 
-          setPathString, 
+          appendPathString, 
           setLatLngPath, 
           countyPathsRef,
           includeMouseEvents,
@@ -161,10 +131,6 @@ const ElectionMap = ({
         updateMarkerPath(markerPathRef.current, pathString)
       }
     }, [pathString])
-
-    useEffect(() => {
-      determineCircledCounties(latLngPath, selectedCounties, setSelectedCounties)
-    }, [latLngPath])
 
     useEffect(() => {
       if (countyPathsRef.current) {
