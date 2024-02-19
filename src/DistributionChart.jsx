@@ -87,6 +87,7 @@ function updateCircles (circlesGroup, aggregatedByYearAndBucket) {
 
 const DistributionChart = ({
   aggregatedByYearAndBucket,
+  selectedCounties,
 }) => {
     const chartGroupRef = useRef()
     const circlesGroupRef = useRef()
@@ -107,6 +108,16 @@ const DistributionChart = ({
       <svg className='svg-chart' viewBox={`0 0 1000 ${height}`}>
         <g ref={chartGroupRef}></g>
         <g ref={circlesGroupRef}></g>
+        {!selectedCounties.size && (
+          <>
+            <text x="560" y='180' textAnchor='middle' fontSize='32'>
+              This chart will populate after you choose
+            </text>
+            <text x="560" y='220' textAnchor='middle' fontSize='32'>
+              some counties on the map below
+            </text>
+          </>
+        )}
       </svg>
     );
 }

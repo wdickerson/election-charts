@@ -5,7 +5,7 @@ import Controls from "./Controls.jsx"
 import DistributionChart from "./DistributionChart.jsx"
 import Legend from "./Legend.jsx"
 import Footer from "./Footer.jsx"
-import { aggregateByYearAndBucket, determineCircledCountiesNew, DEMO_PATH } from './geoData.js';
+import { aggregateByYearAndBucket, determineCircledCountiesNew } from './geoData.js';
 
 
 const Home = () => {
@@ -48,7 +48,7 @@ const Home = () => {
         <div className='big-map-section'>
           <div className='chart-section'>
             <Legend selectedCounties={selectedCounties} totalByYear={totalByYear} aggregatedByYearAndBucket={aggregatedByYearAndBucket} />
-            {!!selectedCounties.size && <DistributionChart aggregatedByYearAndBucket={aggregatedByYearAndBucket} />}
+            <DistributionChart aggregatedByYearAndBucket={aggregatedByYearAndBucket} selectedCounties={selectedCounties} />
           </div>
           <div className='big-map-with-controls'>
             <div className='big-map-with-instructions'>
