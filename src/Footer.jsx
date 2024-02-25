@@ -10,6 +10,9 @@ const Footer = () => {
         <a className="link" href="https://www.linkedin.com/in/wdickerson08">
           <i className="fa fa-linkedin-square"></i>
         </a>
+        <a className="link" href="https://littleapp.io">
+          littleapp.io
+        </a>
       </p>
     );
   };

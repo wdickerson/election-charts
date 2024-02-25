@@ -114,7 +114,7 @@ const DistributionChart = ({
               This chart will populate after you choose
             </text>
             <text x="560" y='220' textAnchor='middle' fontSize='32'>
-              some counties on the map below
+              some counties on the map above
             </text>
           </>
         )}

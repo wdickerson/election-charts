@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svg-chart" viewBox="0 0 1000 520">
+    <g style="font-family:Source Sans Pro;">
+        <g transform="translate(0,400)" fill="none" font-size="10" text-anchor="middle"
+            style="font-size: 22px;">
+            <path class="domain" stroke="currentColor" d="M220,6V0H900V6"></path>
+            <g class="tick" opacity="1" transform="translate(271.86440677966107,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2000</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(387.11864406779665,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2004</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(502.37288135593224,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2008</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(617.6271186440679,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2012</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(732.8813559322034,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2016</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(848.1355932203389,0)">
+                <line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">2020</text>
+            </g>
+        </g><text text-anchor="middle" font-size="22" x="560" y="472">Presidential Election Year</text>
+        <g transform="translate(220,0)" fill="none" font-size="10" text-anchor="end"
+            style="font-size: 22px;">
+            <path class="domain" stroke="currentColor" d="M-6,400H0V30H-6"></path>
+            <g class="tick" opacity="1" transform="translate(0,354.62264150943395)">
+                <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">R+45 or
+                    more</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(0,284.81132075471703)">
+                <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">R+15 to
+                    R+45</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(0,215)">
+                <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">D+15 to
+                    R+15</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(0,145.18867924528303)">
+                <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">D+15 to
+                    D+45</text>
+            </g>
+            <g class="tick" opacity="1" transform="translate(0,75.37735849056602)">
+                <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">D+45 or
+                    more</text>
+            </g>
+        </g><text text-anchor="middle" transform="rotate(-90)" font-size="22" y="40" x="-215">County's Vote
+            Margin</text>
+    </g>
+    <g>
+        <circle class="_2000" cx="271.86440677966107" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="4.730915083460107"></circle>
+        <circle class="_2000" cx="271.86440677966107" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="16.68022008782035"></circle>
+        <circle class="_2000" cx="271.86440677966107" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="20.0962383385785"></circle>
+        <circle class="_2000" cx="271.86440677966107" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="13.606407882814532"></circle>
+        <circle class="_2000" cx="271.86440677966107" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="3.2242161001543046"></circle><text class="_2000" x="301.86440677966107" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">2.5%</text><text class="_2000" x="301.86440677966107"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">30.9%</text><text class="_2000"
+            x="301.86440677966107" y="215" dominant-baseline="middle" font-size="16">44.9%</text><text class="_2000"
+            x="301.86440677966107" y="145.18867924528303" dominant-baseline="middle" font-size="16">20.6%</text><text
+            class="_2000" x="301.86440677966107" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">1.2%</text>
+        <circle class="_2004" cx="387.11864406779665" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="7.801346821556236"></circle>
+        <circle class="_2004" cx="387.11864406779665" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="18.08446751800704"></circle>
+        <circle class="_2004" cx="387.11864406779665" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="17.859969398100514"></circle>
+        <circle class="_2004" cx="387.11864406779665" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="13.279514811533856"></circle>
+        <circle class="_2004" cx="387.11864406779665" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="4.094752963135723"></circle><text class="_2004" x="417.11864406779665" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">6.8%</text><text class="_2004" x="417.11864406779665"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">36.3%</text><text class="_2004"
+            x="417.11864406779665" y="215" dominant-baseline="middle" font-size="16">35.4%</text><text class="_2004"
+            x="417.11864406779665" y="145.18867924528303" dominant-baseline="middle" font-size="16">19.6%</text><text
+            class="_2004" x="417.11864406779665" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">1.9%</text>
+        <circle class="_2008" cx="502.37288135593224" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="7.198817172147177"></circle>
+        <circle class="_2008" cx="502.37288135593224" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="15.782172334792447"></circle>
+        <circle class="_2008" cx="502.37288135593224" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="17.771347794861565"></circle>
+        <circle class="_2008" cx="502.37288135593224" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="13.808040793341178"></circle>
+        <circle class="_2008" cx="502.37288135593224" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="9.623786922018061"></circle><text class="_2008" x="532.3728813559322" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">5.8%</text><text class="_2008" x="532.3728813559322"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">27.7%</text><text class="_2008"
+            x="532.3728813559322" y="215" dominant-baseline="middle" font-size="16">35.1%</text><text class="_2008"
+            x="532.3728813559322" y="145.18867924528303" dominant-baseline="middle" font-size="16">21.2%</text><text
+            class="_2008" x="532.3728813559322" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">10.3%</text>
+        <circle class="_2012" cx="617.6271186440679" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="9.111894542714031"></circle>
+        <circle class="_2012" cx="617.6271186440679" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="16.709040238018808"></circle>
+        <circle class="_2012" cx="617.6271186440679" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="17.717987436692546"></circle>
+        <circle class="_2012" cx="617.6271186440679" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="11.534486691402543"></circle>
+        <circle class="_2012" cx="617.6271186440679" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="9.529422339564416"></circle><text class="_2012" x="647.6271186440679" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">9.2%</text><text class="_2012" x="647.6271186440679"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">31.0%</text><text class="_2012"
+            x="647.6271186440679" y="215" dominant-baseline="middle" font-size="16">34.9%</text><text class="_2012"
+            x="647.6271186440679" y="145.18867924528303" dominant-baseline="middle" font-size="16">14.8%</text><text
+            class="_2012" x="647.6271186440679" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">10.1%</text>
+        <circle class="_2016" cx="732.8813559322034" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="13.025490598389652"></circle>
+        <circle class="_2016" cx="732.8813559322034" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="16.85263605625592"></circle>
+        <circle class="_2016" cx="732.8813559322034" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="14.604854143802617"></circle>
+        <circle class="_2016" cx="732.8813559322034" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="12.726865612789304"></circle>
+        <circle class="_2016" cx="732.8813559322034" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="8.429138730552387"></circle><text class="_2016" x="762.8813559322034" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">18.9%</text><text class="_2016" x="762.8813559322034"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">31.6%</text><text class="_2016"
+            x="762.8813559322034" y="215" dominant-baseline="middle" font-size="16">23.7%</text><text class="_2016"
+            x="762.8813559322034" y="145.18867924528303" dominant-baseline="middle" font-size="16">18.0%</text><text
+            class="_2016" x="762.8813559322034" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">7.9%</text>
+        <circle class="_2020" cx="848.1355932203389" cy="354.62264150943395" fill="rgb(213, 96, 80)" stroke-width="0"
+            r="12.404291339873772"></circle>
+        <circle class="_2020" cx="848.1355932203389" cy="284.81132075471703" fill="rgb(248, 191, 164)" stroke-width="0"
+            r="16.4123081433602"></circle>
+        <circle class="_2020" cx="848.1355932203389" cy="215" fill="rgb(242, 239, 238)" stroke-width="0"
+            r="14.09922940603697"></circle>
+        <circle class="_2020" cx="848.1355932203389" cy="145.18867924528303" fill="rgb(177, 212, 231)" stroke-width="0"
+            r="13.822175581382275"></circle>
+        <circle class="_2020" cx="848.1355932203389" cy="75.37735849056602" fill="rgb(75, 148, 196)" stroke-width="0"
+            r="9.323566383970617"></circle><text class="_2020" x="878.1355932203389" y="354.62264150943395"
+            dominant-baseline="middle" font-size="16">17.1%</text><text class="_2020" x="878.1355932203389"
+            y="284.81132075471703" dominant-baseline="middle" font-size="16">29.9%</text><text class="_2020"
+            x="878.1355932203389" y="215" dominant-baseline="middle" font-size="16">22.1%</text><text class="_2020"
+            x="878.1355932203389" y="145.18867924528303" dominant-baseline="middle" font-size="16">21.2%</text><text
+            class="_2020" x="878.1355932203389" y="75.37735849056602" dominant-baseline="middle"
+            font-size="16">9.7%</text>
+    </g>
+</svg>

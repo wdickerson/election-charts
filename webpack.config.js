@@ -9,6 +9,10 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.svg$/, 
+        loader: 'file-loader' 
+      },
     ],
   },
   resolve: {

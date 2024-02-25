@@ -1,0 +1,224 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#app {
+    margin: auto;
+    align-items: center;
+}
+
+#interactive-link {
+    font-size: 22px;
+    color: #696969;
+}
+
+p {
+    line-height: 26px;
+    font-size: 17px;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+figure {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+figcaption {
+    font-weight: 400;
+    color: #696969;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.image-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chart-figure {
+    width: 70%;
+}
+
+.two-map-figure {
+    text-align: center;
+}
+
+.map-image {
+    padding: 8px;
+    width: 40%;
+}
+
+
+#interactive-section {
+    background-color: #fcf8f6;
+    padding: 24px 42px;
+    margin-top: 28px;
+}
+
+.big-map-section {
+    margin: auto;
+    overflow-y: scroll;
+    max-width: 800px;
+    text-align: center;
+}
+
+.big-map-with-controls {
+    border: 4px solid #eff3ef;
+    border-radius: 6px;
+    background-color: #eff3ef;
+}
+
+.big-map-with-instructions {
+    margin: 4px;
+    cursor: crosshair;
+}
+
+.little-maps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.little-map {
+    width: 30%;
+    background-color: #eff3ef;
+    margin: 4px;
+    border: 4px solid #eff3ef;
+    border-radius: 6px;
+}
+
+strong {
+    font-weight: 800;
+}
+
+.legend .top-line {
+    margin-top: 12px;
+}
+
+.legend {
+    margin-top: 18px;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.instructions {
+    font-size: 20px;
+    padding: 0;
+    margin-top: 0;
+}
+
+.footer-text {
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer-text a {
+    color: gray;
+    margin-left: 6px;
+}
+
+#controls-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.state-button {
+    cursor: pointer;
+    margin: 2px;
+    width: 36px;
+    border: 2px solid #6d926d;
+    border-radius: 30px;
+    color: #6d926d;
+}
+
+.state-button-selected {
+    cursor: pointer;
+    margin: 2px;
+    width: 36px;
+    border: 2px solid #6d926d;
+    border-radius: 30px;
+    background-color: #6d926d;
+    color: white;
+}
+
+.all-us-button {
+    width: 134px;
+}
+
+.clear-button {
+    width: 134px;
+    border: 2px solid #a85d5d;
+    color: #a85d5d;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #app {
+        width: 96%;
+    }
+
+    #interactive-section {
+        padding: 4px 6px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    #app {
+        width: 580px;
+    }
+
+    #interactive-section {
+        padding: 4px 6px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    #app {
+        width: 720px;
+    }
+
+    #interactive-section {
+        padding: 24px 42px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #app {
+        width: 860px;
+    }
+
+    #interactive-section {
+        padding: 24px 42px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #app {
+        width: 1000px;
+    }
+
+    #interactive-section {
+        padding: 24px 42px;
+    }
+}
