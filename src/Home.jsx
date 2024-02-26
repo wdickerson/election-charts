@@ -61,6 +61,12 @@ const Home = () => {
           </figure>
         </div>
         <InteractiveSection />
+        <p className='footer-text'>
+          Note: This analysis includes voting data for the 48 contiguous states and only include votes for the Republican and Democratic candidates
+        </p>
+        <p className='footer-text'>
+          Source: MIT Election Data and Science Lab, 2018, "County Presidential Election Returns 2000-2020", https://doi.org/10.7910/DVN/VOQCHQ, Harvard Dataverse, V12, UNF:6:KNR0/XNVzJC+RnAqIx5Z1Q== [fileUNF]
+        </p>
         <Footer />
       </>
     );

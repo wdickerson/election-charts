@@ -21,13 +21,16 @@ p {
     font-size: 17px;
 }
 
+h1 {
+    font-size: 42px;
+}
+
 h2 {
     margin-top: 40px;
 }
 
 figure {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin: 0;
 }
 
 figcaption {
@@ -96,6 +99,8 @@ figcaption {
     margin: 4px;
     border: 4px solid #eff3ef;
     border-radius: 6px;
+    min-width: 220px;
+    flex: 1;
 }
 
 strong {
@@ -124,6 +129,7 @@ strong {
 .footer-text {
     color: gray;
     font-size: 14px;
+    line-height: 20px;
     text-align: center;
 }
 
@@ -168,21 +174,10 @@ strong {
     color: #a85d5d;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
     #app {
         width: 96%;
-    }
-
-    #interactive-section {
-        padding: 4px 6px;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #app {
-        width: 580px;
     }
 
     #interactive-section {
@@ -193,11 +188,11 @@ strong {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     #app {
-        width: 720px;
+        width: 96%;
     }
 
     #interactive-section {
-        padding: 24px 42px;
+        padding: 4px 6px;
     }
 }
 
