@@ -11,15 +11,15 @@ import {
 } from './geoData.js'
 
 function generateMap(
+  svgRef,
   mapGroupRef, 
-  markerPathRef, 
   appendPathString, 
   setLatLngPath, 
   countyPathsRef,
   includeMouseEvents,
 ) {
+  const svgLayer = d3.select(svgRef)
   const mapLayer = d3.select(mapGroupRef)
-  const markerPath = d3.select(markerPathRef)
 
   const MAP_BG = '#eff3ef'
 
@@ -51,36 +51,65 @@ function generateMap(
   let path = d3.path();
   let latLngPath = [];
   
-  mapLayer.on('mouseup', function() {
+  svgLayer.on('mouseup', function() {
     path.closePath()
     appendPathString(path.toString(), true)
     setLatLngPath(latLngPath)
     path = d3.path();
   })
   
-  markerPath.on('mouseup', function() {
-    path.closePath()
-    appendPathString(path.toString(), true)
-    setLatLngPath(latLngPath)
-    path = d3.path();
-  })
-  
-  mapLayer.on('mousedown', function(d) {
+  svgLayer.on('mousedown', function(d) {
     const [x, y] = d3.pointer(d);
     path = d3.path();
     path.moveTo(x, y);
-    latLngPath = [];
+    latLngPath = [projection.invert([x, y])];
   })
   
-  mapLayer.on('mousemove', function(d) {
+  svgLayer.on('mousemove', function(d) {
     if (!d.buttons) return
     const [x, y] = d3.pointer(d);
     path.lineTo(x, y);
     appendPathString(path.toString(), false)
     latLngPath.push(projection.invert([x, y]))
   })
-}
 
+  let panning = false
+  svgLayer.on('touchstart', function(d) {
+    const t = d3.pointers(d, this);
+    if (t.length > 1) {
+      panning = true;
+      return;
+    }
+
+    const [x, y] = t[0]
+    path = d3.path();
+    path.moveTo(x, y);
+    latLngPath = [projection.invert([x, y])];
+  })
+
+  svgLayer.on('touchmove', function(d) {
+    const t = d3.pointers(d, this);
+    if (panning) return;
+    const [x, y] = t[0]
+    latLngPath.push(projection.invert([x, y]))
+    path.lineTo(x, y);
+    appendPathString(path.toString(), false)
+  })
+
+  svgLayer.on('touchend', function(d) {
+    const t = d3.pointers(d, this);
+    if (panning) {
+      if (t.length == 0) {
+        panning = false;
+      }
+    } else {
+      path.closePath()
+      appendPathString(path.toString(), true)
+      setLatLngPath(latLngPath)
+      path = d3.path();
+    }
+  })
+}
 
 function updateFillsForCounties (countyPaths, year, stateSelectedCounties) {
   countyPaths.attr('fill', function (d) {
@@ -109,22 +138,23 @@ const ElectionMap = ({
   year,
   includeMouseEvents,
 }) => {
+    const svgRef = useRef()
     const mapGroupRef = useRef()
     const markerPathRef = useRef()
     const countyPathsRef = useRef(true)
 
     useEffect(() => {
-      if (mapGroupRef.current && markerPathRef.current) {
+      if (svgRef.current && mapGroupRef.current) {
         generateMap(
+          svgRef.current,
           mapGroupRef.current, 
-          markerPathRef.current, 
           appendPathString, 
           setLatLngPath, 
           countyPathsRef,
           includeMouseEvents,
         )
       }
-    }, [mapGroupRef, markerPathRef])
+    }, [mapGroupRef])
 
     useEffect(() => {
       if (markerPathRef.current) {
@@ -140,7 +170,7 @@ const ElectionMap = ({
 
 
     return (
-      <svg id="svg_map" viewBox="0 0 1000 700">
+      <svg id="svg_map" ref={svgRef} viewBox="0 0 1000 700">
         <g className="map">
             <g ref={mapGroupRef}></g>
             <path ref={markerPathRef}></path>

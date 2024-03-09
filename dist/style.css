@@ -82,6 +82,7 @@ figcaption {
 }
 
 .big-map-with-instructions {
+    touch-action: pinch-zoom;
     margin: 4px;
     cursor: crosshair;
 }
@@ -165,7 +166,11 @@ strong {
 }
 
 .all-us-button {
-    width: 134px;
+    width: 148px;
+}
+
+.partisan-button {
+    width: 204px;
 }
 
 .clear-button {

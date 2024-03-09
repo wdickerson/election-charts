@@ -46,13 +46,13 @@ const InteractiveSection = () => {
       <div id='interactive-section'>
         <h1 id='interactive'>Explore the Interactive Map</h1>
         <p>
-            Select counties on the map below to see if they have become more partisan since 2000. To select counties, you can circle a portion of the U.S. by clicking and drawing with your mouse, or use the State buttons below the map.
+            Select counties on the map below to see if they have become more partisan since 2000. To select counties, you can draw on the map or use the preset buttons.
         </p>
         <div className='big-map-section'>
           <div className='big-map-with-controls'>
             <div className='big-map-with-instructions'>
               <ElectionMap {...props} year="2020" includeMouseEvents />
-              <p className='instructions'><strong>Click and draw on the map to select counties!</strong> Or, choose from:</p>
+              <p className='instructions'><strong>Draw on the map to select counties!</strong> Or, choose from:</p>
             </div>
             <Controls 
               selectedCounties={selectedCounties} 
