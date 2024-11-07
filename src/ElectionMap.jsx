@@ -4,7 +4,8 @@ import * as d3 from "d3";
 import {
   counties,
   states,
-  color,
+  getBucketLabel,
+  BUCKET_COLORS,
   projection,
   geoGenerator,
   getPercentDiff,
@@ -116,7 +117,8 @@ function updateFillsForCounties (countyPaths, year, stateSelectedCounties) {
     const fips = parseInt(d.properties.GEOID);
     if (!stateSelectedCounties.has(fips)) return 'white';
     const percentDiff = getPercentDiff(fips, year)
-    const fill = color(percentDiff)
+    const bucketLabel = getBucketLabel(percentDiff)
+    const fill = BUCKET_COLORS[bucketLabel]
     return fill;
   })
 }

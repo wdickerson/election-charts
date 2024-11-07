@@ -17,8 +17,6 @@ const includedStates = rawStates.features.filter(feature => {
 })
 rawStates.features = includedStates
 
-
-export const color = d3.scaleSequential([100, -100], d3.interpolateRdBu)
 export const projection = d3.geoAlbers().fitSize([1000, 700], rawCounties)
 export const geoGenerator = d3.geoPath().projection(projection);
 
@@ -125,16 +123,16 @@ export const BUCKETS = {
   HIGH_D: "D+45 or more", 
 }
 
-
+const color = d3.scaleSequential([100, -100], d3.interpolateRdBu)
 export const BUCKET_COLORS = {
-  [BUCKETS.HIGH_R]: color(60),
-  [BUCKETS.LOW_R]: color(30),
+  [BUCKETS.HIGH_R]: color(88),
+  [BUCKETS.LOW_R]: color(42),
   [BUCKETS.NEUTRAL]: color(0),
-  [BUCKETS.LOW_D]: color(-30),
-  [BUCKETS.HIGH_D]: color(-60),
+  [BUCKETS.LOW_D]: color(-42),
+  [BUCKETS.HIGH_D]: color(-88),
 }
 
-const getBucketLabel = (diff) => {
+export const getBucketLabel = (diff) => {
   if (diff >= 45) return BUCKETS.HIGH_R;
   else if (diff >= 15) return BUCKETS.LOW_R;
   else if (diff >= -15) return BUCKETS.NEUTRAL

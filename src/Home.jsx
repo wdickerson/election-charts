@@ -1,12 +1,12 @@
 import React from 'react';
 import InteractiveSection from "./InteractiveSection.jsx"
 import Footer from "./Footer.jsx"
-import allUs2020 from "./static/all_us_2020.svg"
-import allUs2000 from "./static/all_us_2000.svg"
-import allUsChart from "./static/all_us_chart.svg"
-import central2020 from "./static/central_2020.svg"
-import central2000 from "./static/central_2000.svg"
-import centralChart from "./static/central_chart.svg"
+import allUs2020 from "./static/all_us_2020.png"
+import allUs2000 from "./static/all_us_2000.png"
+import allUsChart from "./static/all_us_chart.png"
+import central2020 from "./static/central_2020.png"
+import central2000 from "./static/central_2000.png"
+import centralChart from "./static/central_chart.png"
 
 
 const Home = () => {
@@ -45,7 +45,7 @@ const Home = () => {
           This shift is more dramatic in certain parts of the country.
         </h2>
         <p>
-          Using the interactive map, we can complete the same analysis on the region shown below. In 2000, 44.9% of voters in this region lived in a <strong>bipartisan county</strong> and 3.7% lived in a <strong>highly partisan county</strong>. In 2020, 22.1% of voters lived in a <strong>bipartisan county</strong> and 26.8% lived in a <strong>highly partisan county</strong>.
+          Using the interactive map, we can complete the same analysis on the region shown below. In 2000, 45.2% of voters in this region lived in a <strong>bipartisan county</strong> and 4% lived in a <strong>highly partisan county</strong>. In 2020, 25.3% of voters lived in a <strong>bipartisan county</strong> and 23.6% lived in a <strong>highly partisan county</strong>.
         </p>
         <div className='image-group'>
           <figure className='chart-figure'>

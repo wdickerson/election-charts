@@ -49,11 +49,17 @@ figcaption {
 }
 
 .chart-figure {
+    text-align: center;
+}
+
+.chart-image {
+    padding: 8px;
     width: 70%;
 }
 
 .two-map-figure {
     text-align: center;
+    padding-top: 12px;
 }
 
 .map-image {
